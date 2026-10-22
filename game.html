@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Угадай число</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #12121a;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+    h1 { color: #ff5e00; }
+    
+    /* Стили кнопок как у тебя в проекте */
+    .btn-back {
+      background-color: #333333;
+      color: #ffffff;
+      padding: 12px 24px;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-weight: 400;
+      border: 1px solid rgba(255,255,255,0.3);
+      font-family: Arial, sans-serif;
+      margin-top: 20px;
+      display: inline-block;
+    }
+
+    input {
+      padding: 10px;
+      font-size: 18px;
+      border-radius: 5px;
+      border: none;
+      margin-bottom: 15px;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: #ff5e00;
+      color: black;
+      border: none;
+      cursor: pointer;
+      font-family: Arial, sans-serif;
+      font-weight: 400;
+      text-transform: uppercase;
+      font-size: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>УГАДАЙ ЧИСЛО</h1>
+  <p id="message">Я загадал число от 1 до 100. Попробуй угадать!</p>
+  <input type="number" id="guessInput" placeholder="Введи число">
+  <button onclick="checkGuess()">ПРОВЕРИТЬ</button>
+  
+  <a href="index.html" class="btn-back">ВЕРНУТЬСЯ К МЕМАМ</a>
+
+  <script>
+    const secretNumber = Math.floor(Math.random() * 100) + 1; // Число от 1 до 100
+    let attempts = 0;
+
+    function checkGuess() {
+      const input = document.getElementById('guessInput');
+      const message = document.getElementById('message');
+      const value = parseInt(input.value);
+
+      if (isNaN(value)) {
+        message.innerText = "Пожалуйста, введи число!";
+        return;
+      }
+
+      attempts++;
+
+      if (value === secretNumber) {
+        message.innerText = `ПОЗДРАВЛЯЮ! Ты угадал число ${secretNumber} за ${attempts} попыток! 🎉`;
+        input.disabled = true;
+      } else if (value < secretNumber) {
+        message.innerText = "Слишком мало! Попробуй больше.";
+      } else {
+        message.innerText = "Слишком много! Попробуй меньше.";
+      }
+      
+      input.value = ''; // Очищаем поле
+      input.focus();    // Возвращаем курсор
+    }
+  </script>
+</body>
+</html>

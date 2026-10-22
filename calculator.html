@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Калькулятор</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .calc-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-color: #121212;
+      padding: 20px;
+    }
+    .calculator-frame {
+      background-color: #1e1e1e;
+      border: 1px solid #333;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      width: 320px;
+    }
+    .display {
+      width: 100%;
+      height: 60px;
+      background-color: #2c2c2c;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      font-size: 2rem;
+      text-align: right;
+      padding: 0 15px;
+      margin-bottom: 15px;
+      box-sizing: border-box;
+      outline: none;
+    }
+    .calc-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+    .calc-btn {
+      padding: 20px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      font-family: sans-serif;
+      font-weight: bold;
+      color: white;
+      transition: transform 0.1s, background 0.2s;
+    }
+    .calc-btn:active {
+      transform: scale(0.95);
+    }
+    .btn-num {
+      background-color: #333;
+      color: white;
+    }
+    .btn-op {
+      background-color: #ffa31a;
+      color: #1b1b1a;
+    }
+    .btn-clear {
+      background-color: #555;
+      color: white;
+    }
+    .btn-equal {
+      background-color: #ffa31a;
+      color: #1b1b1a;
+      grid-column: span 2;
+    }
+    .back-link {
+      display: block;
+      text-align: center;
+      margin-bottom: 15px;
+      color: #aaa;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+    .back-link:hover {
+      color: #ffa31a;
+    }
+  </style>
+</head>
+<body>
+  <div class="calc-container">
+    <div class="calculator-frame">
+      <a href="index.html" class="back-link">← Вернуться к мемам</a>
+      <input type="text" id="display" class="display" readonly value="0">
+      <div class="calc-grid">
+        <button class="calc-btn btn-clear" onclick="clearDisplay()">AC</button>
+        <button class="calc-btn btn-op" onclick="appendToDisplay('±')">±</button>
+        <button class="calc-btn btn-op" onclick="appendToDisplay('%')">%</button>
+        <button class="calc-btn btn-op" onclick="appendToDisplay('/')">÷</button>
+
+        <button class="calc-btn btn-num" onclick="appendToDisplay('7')">7</button>
+        <button class="calc-btn btn-num" onclick="appendToDisplay('8')">8</button>
+        <button class="calc-btn btn-num" onclick="appendToDisplay('9')">9</button>
+        <button class="calc-btn btn-op" onclick="appendToDisplay('*')">×</button>
+
+        <button class="calc-btn btn-num" onclick="appendToDisplay('4')">4</button>
+        <button class="calc-btn btn-num" onclick="appendToDisplay('5')">5</button>
+        <button class="calc-btn btn-num" onclick="appendToDisplay('6')">6</button>
+        <button class="calc-btn btn-op" onclick="appendToDisplay('-')">−</button>
+
+        <button class="calc-btn btn-num" onclick="appendToDisplay('1')">1</button>
+        <button class="calc-btn btn-num" onclick="appendToDisplay('2')">2</button>
+        <button class="calc-btn btn-num" onclick="appendToDisplay('3')">3</button>
+        <button class="calc-btn btn-op" onclick="appendToDisplay('+')">+</button>
+
+        <button class="calc-btn btn-num" onclick="appendToDisplay('0')">0</button>
+        <button class="calc-btn btn-num" onclick="appendToDisplay('.')">.</button>
+        <button class="calc-btn btn-equal" onclick="calculateResult()">=</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const display = document.getElementById('display');
+
+    function appendToDisplay(value) {
+      if (display.value === '0' && value !== '.') {
+        display.value = value;
+      } else {
+        display.value += value;
+      }
+    }
+
+    function clearDisplay() {
+      display.value = '0';
+    }
+
+    function calculateResult() {
+      try {
+        let expression = display.value;
+        expression = expression.replace('÷', '/');
+        expression = expression.replace('×', '*');
+        expression = expression.replace('±', '-');
+        
+        display.value = eval(expression);
+      } catch (error) {
+        display.value = 'ERROR';
+      }
+    }
+  </script>
+</body>
+</html>

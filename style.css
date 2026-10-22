@@ -1,0 +1,275 @@
+@import url('https://fonts.googleapis.com/css2?family=Impact&display=swap');
+
+:root {
+  --bg-dark: #1b1b1b;
+  --bg-mid: #292929;
+  --accent: #ffa31a;
+  --text: #ffffff;
+}
+html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  color: #fff;
+  min-height: 100%;
+  background: 
+    radial-gradient(
+      at 50% 50%,
+      rgba(255, 255, 255, 0.02) 0%,
+      rgba(255, 255, 255, 0.02) 50%,
+      rgba(0, 0, 0, 0.1) 100%
+    ),
+    linear-gradient(90deg, #1a1a24 50%, #ff5e00 50%);
+  background-size: 100% 100%;
+}
+
+.container, .wrapper, .main, .content, #main-content {
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+.meme-card {
+  background-color: #12121a;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+button, .btn, .meme-card button {
+  border: none;
+  font-family: Arial, sans-serif;
+  font-weight: 400; /* обычный вес вместо жирного */
+  text-transform: uppercase;
+  padding: 0;
+  border-radius: 0;
+  cursor: pointer;
+  box-shadow: none;
+  color: inherit;
+}
+
+.calculator-btn, .btn.calculator {
+  background-color: #ffffff !important;
+  color: #ff5e00 !important;
+  font-family: Arial, sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+/* Кнопка «Ещё страданий» — обычный вес шрифта */
+.suffering-btn, .btn.suffering {
+  background-color: #ffaa00 !important;
+  color: #000000 !important;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Arial, sans-serif !important;
+  font-weight: 400 !important;
+  text-transform: uppercase !important;
+  font-size: clamp(1.2rem, 5vw, 2rem);
+  line-height: 1;
+}
+
+/* Кнопка «Назад» — обычный вес шрифта */
+.back-btn, .btn-back, .btn.back {
+  background-color: #333333 !important;
+  color: #ffffff !important;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Arial, sans-serif !important;
+  font-weight: 400 !important;
+  text-transform: uppercase !important;
+  font-size: clamp(1.2rem, 5vw, 2rem);
+  line-height: 1;
+}
+
+footer, .footer, .site-footer, #footer {
+  background-color: transparent !important;
+  border-top: none !important;
+}
+
+header {
+  text-align: center;
+  padding: 40px 0;
+  border-bottom: 4px solid var(--accent);
+  background-color: var(--bg-mid);
+}
+
+header h1 {
+  margin: 0;
+  font-size: 3rem;
+  letter-spacing: 4px;
+}
+
+.meme-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+  padding: 30px;
+}
+
+.meme-card {
+  background-color: var(--bg-mid);
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  border: 2px solid var(--accent);
+}
+
+.img-placeholder {
+  font-size: 6rem;
+  margin-bottom: 15px;
+  display: block;
+}
+
+.caption {
+  margin: 0;
+  font-size: 1.1rem;
+  line-height: 1.3;
+}
+
+.img-placeholder {
+  font-size: 6rem;
+  margin-bottom: 15px;
+  display: block;
+}
+
+.caption {
+  margin: 0;
+  font-size: 1.1rem;
+  line-height: 1.3;
+}
+
+.buttons-group {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.action-btn {
+  display: inline-block;
+  padding: 15px 30px;
+  background-color: var(--accent);
+  color: var(--bg-dark);
+  font-family: 'Impact', sans-serif;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(255,163,26,0.4);
+  transition: transform 0.2s, box-shadow 0.2s;
+  margin: 0 10px;
+  text-decoration: none; /* для ссылки-кнопки */
+}
+
+.action-btn.secondary {
+  background-color: #444;
+  color: var(--text);
+  box-shadow: 0 6px 16px rgba(68,68,68,0.4);
+}
+
+.action-btn:hover:not(.hidden) {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(255,163,26,0.6);
+}
+
+.hidden {
+  display: none !important;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+  font-size: 0.8rem;
+  opacity: 0.7;
+  border-top: 1px solid #444;
+}
+.youtube-style-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 30px;
+  font-family: Arial, sans-serif;
+}
+
+.logo-text {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.logo-box {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #000;
+  line-height: 1;
+  text-transform: uppercase;
+  background-color: #ff7b00;
+  padding: 10px 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(255, 0, 0, 0.4);
+}
+/* CSS: стили для кнопки «Игра» (вставь после стилей .suffering-btn и .back-btn) */
+.game-btn {
+  background-color: #ff5e00 !important;
+  color: #000000 !important;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Arial, sans-serif !important;
+  font-weight: 400 !important;
+  text-transform: uppercase !important;
+  font-size: clamp(1.2rem, 5vw, 2rem);
+  line-height: 1;
+  text-decoration: none; /* убирает подчёркивание ссылки */
+}
+/* Кнопка «ИГРА» — стиль как у «Калькулятор» */
+.game-btn {
+  background-color: #ffffff !important;
+  color: #ff5e00 !important;
+  font-family: Arial, sans-serif !important;
+  font-weight: 400 !important;       /* обычный, не жирный */
+  text-transform: uppercase !important;
+  padding: 12px 24px;
+  border-radius: 6px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  text-decoration: none;            /* убирает подчёркивание ссылки */
+  width: 100%;                      /* на всю ширину карточки */
+  display: block;                    /* чтобы встала ровно под калькулятором */
+}
+
+/* Эффект при наведении — как у остальных кнопок */
+.game-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+}
+.meme-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+.meme-icon {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto 12px auto;
+}
